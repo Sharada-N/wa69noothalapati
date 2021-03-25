@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var substitution;
+var calcMath;
 /* GET home page. */
 router.get('/', function(req, res, next) {
     fake_url = "https://fake.com/path" + req.url
@@ -8,14 +8,14 @@ router.get('/', function(req, res, next) {
       const search_params = url.searchParams
 
     
-    substitution=Number(search_params.get("x"))
+    calcMath=Number(search_params.get("x"))
     // if paramter is not specified  value of Number(search_params.get("x")) is always zero
     //console.log(Number(search_params.get("x"))+"hello")
-    if(substitution == 0)
-      substitution=Math.random()
+    if(calcMath == 0)
+      calcMath=Math.random()
     
-    res.write('Math.log applied to '+substitution+" is "+Math.log(substitution)+"\n");
-    res.end('Math.log10 applied to '+substitution+" is "+Math.log10(substitution));
+    res.write('Math.log applied to '+calcMath+" is "+Math.log(calcMath)+"\n");
+    res.end('Math.log10 applied to '+calcMath+" is "+Math.log10(calcMath));
  });
 
 module.exports = router;
